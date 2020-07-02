@@ -1,5 +1,5 @@
 #!/bin/bash
-# Date: 04/28/2020
+# Date: 07/02/2020
 # Author: John
 # This script copies the minecraft world folder to the map folder every hour.
 # Use the start.sh script to launch the backup process, as start.sh calls this script in a new screen.
