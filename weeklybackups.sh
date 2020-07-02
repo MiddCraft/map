@@ -39,22 +39,23 @@ echo "Starting up the weekly backup process..."
 echo "The timezone used is UTC. Backups are saved to the $weeklybackupsdir folder every Monday."
 
 format_backup () {
-        cp -r worlddir netherdir enddir weeklybackupsdir
+        cp -r ${worlddir} ${netherdir} ${enddir} ${weeklybackupsdir}
         destworlddir="${weeklybackupsdir}${worlddirname}"
         destnetherdir="${weeklybackupsdir}${netherdirname}"
         destenddir="${weeklybackupsdir}${enddirname}"
 
-        cd destworlddir
+        cd ${destworlddir}
         rm -r advancements/ poi/ playerdata/ stats/ # Remove any user data
 
-        zip -r ${zipname} destworlddir netherdir enddir
+        cd ${weeklybackupsdir}
+        zip -r ${zipname} ${destworlddir} ${netherdir} ${enddir}
 }
 
 while true; do
         
         currentweekday="$(date +%A)"
 
-        if [ $currentweekday == "Monday" ]; then
+        if [ "$currentweekday" == "Monday" ]; then
                 # Removes user data and creates the zip
                 format_backup
 
