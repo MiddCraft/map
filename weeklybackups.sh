@@ -4,8 +4,7 @@
 # This script copies the minecraft world folder to the map folder every hour.
 # Use the start.sh script to launch the backup process, as start.sh calls this script in a new screen.
 # Every new folder copied over overwrites the latest world copy.
-# A folder is titled in the format world_WW where WW is the number of the week at which the folder was backed-up.
-# The script is also configured to push a zipped file of the world folders, to the Middcraft/Map Github Repository.
+# The script is configured to push a zipped file of the world folders, to the Middcraft/Map Github Repository.
 # See https://github.com/MiddCraft/map
 
 ########################### FOLDER PATHS #######################################
