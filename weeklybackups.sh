@@ -56,7 +56,10 @@ while true; do
         currentweekday="$(date +%A)"
 
         if [ "$currentweekday" == "Monday" ]; then
-                # Removes user data and creates the zip
+                # Remove current map zip, to be replaced with the latest
+                rm middleburymap.zip
+
+                # Removes user data from world files & creates the map zip
                 format_backup
 
                 # Add the zip to git, commit & push
