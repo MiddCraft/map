@@ -57,7 +57,7 @@ while true; do
 
         if [ "$currentweekday" == "Monday" ]; then
                 # Remove current map zip, to be replaced with the latest
-                rm middleburymap.zip
+                rm *.zip
 
                 # Removes user data from world files & creates the map zip
                 format_backup
