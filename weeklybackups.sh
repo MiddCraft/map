@@ -43,11 +43,10 @@ import_backups () {
         cp -r ${worlddir} ${netherdir} ${enddir} ${weeklybackupsdir}
 
         cd ${destworlddir}
-        rm -r advancements/ poi/ playerdata/ stats/ # Remove any user data that should not be uploaded
+        rm -r advancements/ playerdata/ stats/ # Remove any user data that should not be uploaded
 }
 
 while true; do
-        
         currentweekday="$(date +%A)"
 
         if [ "$currentweekday" == "Tuesday" ]; then
