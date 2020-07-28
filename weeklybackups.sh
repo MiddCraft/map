@@ -22,7 +22,7 @@ netherdirname="world_nether"
 enddirname="world_the_end"
 
 # Commit message to be displayed on GitHub
-commitmessage="Weekly map upload"
+commitmessage="Automated weekly map upload"
 
 ##############################################################################
 
@@ -49,7 +49,7 @@ import_backups () {
 while true; do
         currentweekday="$(date +%A)"
 
-        if [ "$currentweekday" == "Tuesday" ]; then
+        if [ "$currentweekday" == "Monday" ]; then
                 # Removes user data from world files & copies the world backups over
                 import_backups
 
