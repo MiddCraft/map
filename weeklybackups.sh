@@ -50,16 +50,14 @@ while true; do
         currentweekday="$(date +%A)"
 
         if [ "$currentweekday" == "Tuesday" ]; then
-                # Remove old world folders (deletes contents from git, and locally)
-                git rm -r ${destworlddir} ${destnetherdir} ${destenddir}
-                # rm -r ${destworlddir} ${destnetherdir} ${destenddir}
-
-                # Removes user data from world files & creates the map zip
+                # Removes user data from world files & copies the world backups over
                 import_backups
 
-                # Add the zip to git, commit & push
-                git add * # This will not re-add files already existing in git (e.g the README.md file)
-                git commit -m ${commitmessage}
+                # This will not re-add files already existing or unmodified in
+                # git (e.g the README.md file), however it will delete any
+                # locally removed files
+                git commit -a -m ${commitmessage}
+
                 git push
 
                 sleep 24h
