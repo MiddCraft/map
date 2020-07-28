@@ -6,7 +6,7 @@
 # Every new folder copied over overwrites the latest world copy.
 # The weekly backed up folder may be found publicly at https://github.com/MiddCraft/map
 
-########################### FILE PATHS #######################################
+########################### USER INPUT #######################################
 # NOTE: Make sure to add a trailing slash / at the end of folder names.
 
 # Destination folder for weekly backups
