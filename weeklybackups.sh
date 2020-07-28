@@ -17,9 +17,9 @@ weeklybackupsdir="/root/map/"
 sourcedir="/root/MiddCraft/"
 
 # Name of source world folder (typically called "world" by default), as well as nether & end folders
-worlddirname="world/"
-netherdirname="world_nether/"
-enddirname="world_the_end/"
+worlddirname="world"
+netherdirname="world_nether"
+enddirname="world_the_end"
 
 # Commit message to be displayed on GitHub
 commitmessage="Weekly map upload"
