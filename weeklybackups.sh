@@ -56,7 +56,7 @@ while true; do
                 # This will not re-add files already existing or unmodified in
                 # git (e.g the README.md file), however it will delete any
                 # locally removed files
-                git commit -a -m ${commitmessage}
+                git commit -a -m "${commitmessage}"
 
                 git push
 
