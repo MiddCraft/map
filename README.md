@@ -14,7 +14,7 @@ Next, find the Minecraft game folder that was created on your computer when you 
 - Windows users: it will be located under your [AppData folder](https://www.howtogeek.com/318177/what-is-the-appdata-folder-in-windows/). It may be titled `.minecraft`.
 - Mac & Linux users: you'll find it under `~/Library/Application Support/` (access the folder by opening a Finder window, hitting `shift` + `command` + `G` and typing in that path). You should find the `minecraft` folder in there.
 
-Open the Minecraft folder.  You will see a folder titled `Saves` -- this is where all of your Minecraft maps are located.  In a separate window, go into your `map-master` folder.  Drag and drop the 'world' folder in 'map-master' into the 'Saves' folder.  Rename the 'world' folder to something more familiar, like `MiddCraft` or `Middlebury`.
+Open the Minecraft folder.  You will see a folder titled `Saves` -- this is where all of your Minecraft maps are located.  In a separate window, go into your `map-master` folder.  Drag and drop the `world` folder in `map-master` into your Minecraft's 'Saves' folder.  Rename the 'world' folder to something more familiar, such as `MiddCraft` or `Middlebury`.
 
 That's it! Launch Minecraft under the game's latest version, hit `Singleplayer` and join the `MiddCraft`/`Middlebury` world (it will still be titled `world` if you have not changed the title).
 
