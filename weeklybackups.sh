@@ -1,13 +1,12 @@
 #!/bin/bash
 # Date: 07/02/2020
 # Author: John
-# This script copies the minecraft world folder to the map folder every hour.
+# This script copies the minecraft world folder to the map folder once a week, on Monday.
 # Use the start.sh script to launch the backup process, as start.sh calls this script in a new screen.
 # Every new folder copied over overwrites the latest world copy.
-# The script is configured to push a zipped file of the world folders, to the Middcraft/Map Github Repository.
-# See https://github.com/MiddCraft/map
+# The weekly backed up folder may be found publicly at https://github.com/MiddCraft/map
 
-########################### FOLDER PATHS #######################################
+########################### FILE PATHS #######################################
 # NOTE: Make sure to add a trailing slash / at the end of folder names.
 
 # Destination folder for weekly backups
@@ -18,52 +17,49 @@ weeklybackupsdir="/root/map/"
 sourcedir="/root/MiddCraft/"
 
 # Name of source world folder (typically called "world" by default), as well as nether & end folders
-worlddirname="world"
-netherdirname="world_nether"
-enddirname="world_the_end"
-
-# End zip file name (include .zip at the end please)
-zipname="middleburymap.zip"
+worlddirname="world/"
+netherdirname="world_nether/"
+enddirname="world_the_end/"
 
 # Commit message to be displayed on GitHub
 commitmessage="Weekly map upload"
 
 ##############################################################################
 
-# Source world folder path
+# Source world folder path (where the Minecraft server files are located)
 worlddir="${sourcedir}${worlddirname}/"
 netherdir="${sourcedir}${netherdirname}/"
 enddir="${sourcedir}${enddirname}/"
 
+destworlddir="${weeklybackupsdir}${worlddirname}"
+destnetherdir="${weeklybackupsdir}${netherdirname}"
+destenddir="${weeklybackupsdir}${enddirname}"
+
 echo "Starting up the weekly backup process..."
 echo "The timezone used is UTC. Backups are saved to the $weeklybackupsdir folder every Monday."
 
-format_backup () {
+import_backups () {
+        # Copy in the world folders to the destination directory
         cp -r ${worlddir} ${netherdir} ${enddir} ${weeklybackupsdir}
-        destworlddir="${weeklybackupsdir}${worlddirname}"
-        destnetherdir="${weeklybackupsdir}${netherdirname}"
-        destenddir="${weeklybackupsdir}${enddirname}"
 
         cd ${destworlddir}
-        rm -r advancements/ poi/ playerdata/ stats/ # Remove any user data
-
-        cd ${weeklybackupsdir}
-        zip -r ${zipname} ${destworlddir} ${netherdir} ${enddir}
+        rm -r advancements/ poi/ playerdata/ stats/ # Remove any user data that should not be uploaded
 }
 
 while true; do
         
         currentweekday="$(date +%A)"
 
-        if [ "$currentweekday" == "Monday" ]; then
-                # Remove current map zip, to be replaced with the latest
-                rm *.zip
+        if [ "$currentweekday" == "Tuesday" ]; then
+                # Remove old world folders (deletes contents from git, and locally)
+                git rm -r ${destworlddir} ${destnetherdir} ${destenddir}
+                # rm -r ${destworlddir} ${destnetherdir} ${destenddir}
 
                 # Removes user data from world files & creates the map zip
-                format_backup
+                import_backups
 
                 # Add the zip to git, commit & push
-                git add ${weeklybackupsdir}${zipname}
+                git add * # This will not re-add files already existing in git (e.g the README.md file)
                 git commit -m ${commitmessage}
                 git push
 
