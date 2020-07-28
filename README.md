@@ -1,5 +1,5 @@
 # Middlebury College Minecraft Map
-Regular automated upload of the Middlebury map folders, for anyone to download and check out!
+Weekly automated backup of the Middlebury map folders, for all to download and check out!
 You can always explore the map on the official MiddCraft server as well (IP: play.middcraft.com).  Find out more on the [middcraft.com](https://middcraft.com) website.
 
 ## Download the map files
