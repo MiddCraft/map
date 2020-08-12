@@ -3,7 +3,7 @@ Weekly automated backup of the Middlebury map folders, for all to download and c
 You can always explore the map on the official MiddCraft server as well (IP: play.middcraft.com).  Find out more on the [middcraft.com](https://middcraft.com) website.
 
 ## Download the map files
-First, download the map files. You can do so by clicking the green "Code" or "Clone or download" button on the rop right.  You can download the ZIP file for simplicity, or clone the repository if you're familiar with GitHub.
+First, download the map files. You can do so by clicking the green "Code" or "Clone or download" button on the rop right.  You can download the ZIP file for simplicity, or clone the repository if you're familiar with GitHub.  The zip download will take a few minutes to download, depending on your internet speed.
 
 It will take a few minutes for the ZIP file to download. Once it is downloaded, [unzip](https://www.wikihow.com/Unzip-a-File) it.  This will create a folder titled `map-master`, containing all of the Minecraft map folders & files.
 
